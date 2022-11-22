@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "New User Registration";
+}
+
+<div class="text-left">
+    @if (Model == null)
+    {
+        <h1 class="display-6" style="color: #0366d6; text-align: center">Добро пожаловать в наш веб-сервис!</h1>
+        <br>
+        <form method="post">
+            <div class="mb-3">
+                <div class="col-md-3">
+                    <label for="exampleInputText" class="form-label">Имя:</label>
+                    <input type="text" class="form-control" id="exampleInputText" name="FirstName">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="col-md-3">
+                    <label for="exampleInputText" class="form-label">Фамилия:</label>
+                    <input type="text" class="form-control" id="exampleInputText" name="LastName">
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Регистрация</button>
+        </form>
+    }
+    else
+    {
+        @await Html.PartialAsync("_Thanks")
+    }
+</div>

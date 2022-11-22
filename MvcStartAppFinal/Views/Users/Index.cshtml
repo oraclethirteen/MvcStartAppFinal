@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "View Project Users";
+}
+
+<div class="text-left">
+    <h1 class="display-6" style="color: #0366d6">Пользователи проекта</h1>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Идентификатор</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Дата регистрации</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.JoinDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

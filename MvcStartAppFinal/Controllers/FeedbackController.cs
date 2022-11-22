@@ -1,21 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MvcStartAppFinal.Models;
 using System.Diagnostics;
 
 namespace MvcStartAppFinal.Controllers
 {
-    public class HomeController : Controller
+    public class FeedbackController : Controller
     {
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Add()
         {
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Privacy()
+        /// <summary>
+        /// Метод для Ajax-запросов
+        /// </summary>
+        [HttpPost]
+        public IActionResult Add(Feedback feedback)
         {
-            return View();
+            return StatusCode(200, $"{feedback.From}, спасибо за отзыв!");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
